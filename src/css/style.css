@@ -32,6 +32,11 @@ body {
   font-family: "Migra";
 }
 
+p {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.4;
+}
+
 a {
   text-decoration: none;
   color: #ffffff;
@@ -87,13 +92,13 @@ nav {
 }
 
 .hero h1 {
+  z-index: 2;
   width: 100%;
   text-align: center;
   position: absolute;
   color: rgba(0, 0, 0, 0);
   -webkit-text-stroke: 2px #ffffff;
   text-transform: uppercase;
-  left: -70rem;
 }
 
 #bouteille {
@@ -102,24 +107,67 @@ nav {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+  z-index: 3;
 }
 
 .product {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   background-color: #EF7F98;
+}
+
+.product::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.1;
+  mix-blend-mode: darken;
+  background-image: url("../img/topo.svg");
+}
+
+.text-holder {
+  z-index: 2;
+}
+
+.text-holder h2 {
+  font-size: 5.5rem;
+}
+
+.text-holder p {
+  font-size: 1.5rem;
 }
 
 @media only screen and (min-width: 700px) {
   #bouteille {
     width: 30%;
-    z-index: 3;
   }
   .hero h1 {
-    z-index: 2;
     font-size: 17vw;
+    left: -70rem;
   }
   .product {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin-top: 20rem;
     height: 60rem;
+  }
+  #product-image {
+    width: 50rem;
+    z-index: 99;
+    left: 0;
+  }
+  .text-holder {
+    width: 40%;
   }
 }
 
@@ -127,8 +175,31 @@ nav {
   #bouteille {
     width: 100%;
   }
+  .text-holder {
+    padding: 4rem 2rem;
+  }
+  .text-holder h2 {
+    padding-bottom: .5rem;
+  }
+  .product {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
   .hero h1 {
     font-size: 17vw;
+  }
+  #product-image {
+    width: 50%;
+    height: 50%;
+    position: static;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  #contact {
+    display: none;
   }
 }
 /*# sourceMappingURL=style.css.map */
