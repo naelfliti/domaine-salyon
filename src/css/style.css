@@ -68,7 +68,7 @@ nav {
 
 #logo {
   padding: 3rem 0rem;
-  width: 15rem;
+  width: 18rem;
 }
 
 #contact {
@@ -114,6 +114,7 @@ nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
   background-color: #EF7F98;
 }
 
@@ -131,6 +132,33 @@ nav {
   background-image: url("../img/topo.svg");
 }
 
+#canvas {
+  /* make the canvas wrapper fits the document */
+  position: absolute;
+  top: -9rem;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  aspect-ratio: auto 16/9;
+}
+
+.plane {
+  /* define the size of your plane */
+  margin-top: 15rem;
+  width: 40rem;
+  height: 65rem;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  z-index: 99;
+}
+
+.plane img {
+  /* hide the img element */
+  display: none;
+}
+
 .text-holder {
   z-index: 2;
 }
@@ -143,9 +171,101 @@ nav {
   font-size: 1.5rem;
 }
 
+.marquee {
+  background-color: #ffffff;
+  color: #131313;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  --offset: 20vw;
+  --move-initial: calc(-25% + var(--offset));
+  --move-final: calc(-50% + var(--offset));
+}
+
+.marquee:nth-child(even) {
+  background-color: #131313;
+  color: #ffffff;
+}
+
+.marquee:nth-child(even) .marquee__inner {
+  -webkit-animation: marqueereverse 5s linear infinite;
+          animation: marqueereverse 5s linear infinite;
+}
+
+.marquee__inner {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-transform: translate3d(var(--move-initial), 0, 0);
+          transform: translate3d(var(--move-initial), 0, 0);
+  -webkit-animation: marquee 7s linear infinite;
+          animation: marquee 7s linear infinite;
+}
+
+.marquee span {
+  font-size: 8vw;
+  padding: 0 3vw;
+}
+
+.marquee:hover .marquee__inner {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+@-webkit-keyframes marquee {
+  0% {
+    -webkit-transform: translate3d(var(--move-initial), 0, 0);
+            transform: translate3d(var(--move-initial), 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(var(--move-final), 0, 0);
+            transform: translate3d(var(--move-final), 0, 0);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    -webkit-transform: translate3d(var(--move-initial), 0, 0);
+            transform: translate3d(var(--move-initial), 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(var(--move-final), 0, 0);
+            transform: translate3d(var(--move-final), 0, 0);
+  }
+}
+
+@-webkit-keyframes marqueereverse {
+  0% {
+    -webkit-transform: translate3d(var(--move-final), 0, 0);
+            transform: translate3d(var(--move-final), 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(var(--move-initial), 0, 0);
+            transform: translate3d(var(--move-initial), 0, 0);
+  }
+}
+
+@keyframes marqueereverse {
+  0% {
+    -webkit-transform: translate3d(var(--move-final), 0, 0);
+            transform: translate3d(var(--move-final), 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(var(--move-initial), 0, 0);
+            transform: translate3d(var(--move-initial), 0, 0);
+  }
+}
+
 @media only screen and (min-width: 700px) {
   #bouteille {
     width: 30%;
+  }
+  .hero {
+    margin-bottom: 50rem;
   }
   .hero h1 {
     font-size: 17vw;
@@ -158,13 +278,7 @@ nav {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    margin-top: 20rem;
-    height: 60rem;
-  }
-  #product-image {
-    width: 50rem;
-    z-index: 99;
-    left: 0;
+    height: 50rem;
   }
   .text-holder {
     width: 40%;
@@ -176,21 +290,26 @@ nav {
     width: 100%;
   }
   .text-holder {
-    padding: 4rem 2rem;
+    padding: 0rem 2rem;
   }
   .text-holder h2 {
     padding-bottom: .5rem;
   }
   .product {
+    padding: 5rem 0;
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
+    position: relative;
   }
   .hero h1 {
+    -webkit-text-stroke: 1px #ffffff;
     font-size: 17vw;
   }
   #product-image {
+    margin-top: 5rem;
+    z-index: 999;
     width: 50%;
     height: 50%;
     position: static;
@@ -199,6 +318,12 @@ nav {
         align-self: center;
   }
   #contact {
+    display: none;
+  }
+  #canvas {
+    display: none;
+  }
+  .plane {
     display: none;
   }
 }

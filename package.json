@@ -4,7 +4,9 @@
   "description": "Un projet sur 3 jours visant à concevoir un site onepage pour la promotion d'une bouteille de crément.",
   "main": "index.js",
   "dependencies": {
-    "locomotive-scroll": "^4.1.1"
+    "locomotive-scroll": "^4.1.1",
+    "tilt.js": "^1.2.1",
+    "vanilla-tilt": "^1.7.2"
   },
   "devDependencies": {},
   "scripts": {
