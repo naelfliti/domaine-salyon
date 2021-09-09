@@ -33,7 +33,6 @@
 
 html{
     overflow: hidden;
-
     font-size: 62.5%;
 }
 
@@ -56,9 +55,6 @@ body{
     font-family: $primary-font;
 }
 
-.wrapper{
-    // height: 100vh;
-}
 
 p{
     font-family: $secondary-font;
@@ -161,6 +157,7 @@ nav{
     height: 65rem;
     align-self: center;
     z-index: 99;
+    margin-bottom: fix bug 13rem;
 }
 
 .plane img {
