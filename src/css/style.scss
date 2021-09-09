@@ -1,5 +1,31 @@
 @import 'variables';
 
+
+// anims
+
+@keyframes marquee {
+    0% {
+        transform: translate3d(var(--move-initial), 0, 0);
+    }
+
+    100% {
+        transform: translate3d(var(--move-final), 0, 0);
+    }
+}
+
+@keyframes marqueereverse {
+    0% {
+        transform: translate3d(var(--move-final), 0, 0);
+    }
+    100% {
+        transform: translate3d(var(--move-initial), 0, 0);
+    }
+
+    
+}
+
+
+
 *,*::after, *::before{
     margin: 0;
     padding: 0;
@@ -25,6 +51,10 @@ body{
     background-color: $noir ;
     color: $blanc;
     font-family: $primary-font;
+}
+
+.wrapper{
+    overflow: hidden;
 }
 
 p{
@@ -187,25 +217,72 @@ nav{
     animation-play-state: running;
 }
 
-@keyframes marquee {
-    0% {
-        transform: translate3d(var(--move-initial), 0, 0);
-    }
+footer{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    background-color: $rose;
+    padding: 4rem 0rem;
+   
 
-    100% {
-        transform: translate3d(var(--move-final), 0, 0);
+    &::before{
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: -2rem;
+        top: 0;
+        width: 150%;
+        height: 150%;
+        background-image: url("../img/Raisins.svg");
+        background-repeat: no-repeat;
+        mix-blend-mode:multiply;
+        opacity: .2;
     }
 }
 
-@keyframes marqueereverse {
-    0% {
-        transform: translate3d(var(--move-final), 0, 0);
+.legal{
+    p{font-size: 1.3rem;}
+    margin-top: 10rem;
+}
+
+.footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    // width: 70vw;
+}
+
+.left-menu{
+    h2{
+        font-size: 2rem;
+        text-decoration: underline;
     }
-    100% {
-        transform: translate3d(var(--move-initial), 0, 0);
+    li{
+        font-family: $secondary-font;
+        line-height: 3rem;
+        list-style: none;
+        font-size: 1.6rem;
     }
 
-    
+    margin: 0 5rem;
+}
+
+.right-menu{
+    h2{
+        font-size: 2rem;
+        text-decoration: underline;
+    }
+    li{
+        font-family: $secondary-font;
+        line-height: 3rem;
+        list-style: none;
+        font-size: 1.6rem;
+    }
+    margin:0 5rem;
 }
 
 
@@ -289,6 +366,15 @@ nav{
 
     .plane{
         display: none;
+    }
+
+    .footer{
+        flex-direction: column;
+    }
+
+    .left-menu, .right-menu{
+        width: 100%;
+        margin: 2rem 0;
     }
 }
 
