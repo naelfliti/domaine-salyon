@@ -53,7 +53,7 @@
 }
 
 html {
-  overflow-x: hidden;
+  overflow: hidden;
   font-size: 62.5%;
 }
 
@@ -68,16 +68,14 @@ body {
   /* IE and Edge */
   scrollbar-width: none;
   /* Firefox */
+  max-width: 100%;
+  overflow: hidden;
 }
 
 body {
   background-color: #131313;
   color: #ffffff;
   font-family: "Migra";
-}
-
-.wrapper {
-  overflow: hidden;
 }
 
 p {
@@ -372,7 +370,6 @@ footer::before {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    height: 50rem;
   }
   .text-holder {
     width: 40%;
@@ -402,7 +399,7 @@ footer::before {
     font-size: 17vw;
   }
   #product-image {
-    margin-top: 5rem;
+    margin: 5rem;
     z-index: 999;
     width: 50%;
     height: 50%;
