@@ -198,6 +198,7 @@ nav {
       -ms-grid-row-align: center;
       align-self: center;
   z-index: 99;
+  margin-bottom: 13rem;
 }
 
 .plane img {
